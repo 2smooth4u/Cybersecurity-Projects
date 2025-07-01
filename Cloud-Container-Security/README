@@ -1,0 +1,104 @@
+# Hardened Docker Containers for Web and Database Servers
+
+This repository contains two hardened Docker containers for a cloud-based suggestion box application. It includes:
+- A **Web Server** (PHP, Nginx, PHP-FPM)
+- A **Database Server** (MariaDB)
+
+##  Directory Structure
+
+```
+.
+├── dbserver/
+│   ├── Dockerfile
+│   ├── Makefile
+│   └── sqlconfig/
+│       └── csvs23db.sql
+├── webserver/
+│   ├── Dockerfile
+│   ├── Makefile
+│   ├── webfiles/
+│   │   ├── index.php
+│   │   ├── action.php
+│   │   └── style.css
+│   └── configfiles/
+│       ├── nginx.conf
+│       ├── default.conf
+│       ├── php.ini
+│       ├── php-fpm.conf
+│       └── www.conf
+```
+
+## Build Instructions
+
+### Database Server
+
+```bash
+cd dbserver
+make build
+```
+
+### Web Server
+
+```bash
+cd webserver
+make build
+```
+
+##  Run Instructions (Secure)
+
+### Database Server
+
+```bash
+make run
+```
+
+> Security Flags:
+- `--read-only`
+- `--cap-drop=ALL`
+- `--pids-limit=200`
+- `--tmpfs` for `/run`, `/tmp`, `/var/run/mysqld`
+- User 999 (mysql)
+
+### Web Server
+
+```bash
+make run
+```
+
+> Security Flags:
+- `--read-only`
+- `--cap-drop=ALL`
+- `--pids-limit=200`
+- `--tmpfs` for `/tmp`, `/run/php`, `/var/log/nginx`, `/var/lib/nginx`
+- User 1001 (webapp)
+
+## Security Hardened Features
+
+- Minimal base images (Debian Slim & MariaDB official)
+- Non-root execution with dedicated UIDs
+- Read-only root filesystem
+- Controlled volume mounts and tmpfs usage
+- Custom configuration files (nginx, PHP, MySQL)
+- Docker capabilities dropped
+- Optional seccomp profile (`unconfined` currently used for stability)
+
+
+## Network Setup
+
+- Custom Docker network: `u5645801_net`  
+- **Database Server IP**: `192.168.56.102`  
+- **Web Server IP**: `192.168.56.103`
+
+## Application Functionality
+
+- Submit feedback via a web form
+- Store suggestions in a MariaDB backend
+- Display table contents dynamically on the homepage
+- Protection against XSS and SQL injection
+
+## Testing and Validation
+
+- Trivy scan (before & after hardening)
+- Manual penetration testing (XSS, SQLi)
+- Runtime verification using CLI and browser
+- Volumes used for persistent database storage
