@@ -23,28 +23,24 @@ Welcome to my cybersecurity portfolio! Each project demonstrates practical exper
 ### 🏢 [Tech Zolutions Enterprise Network Design](./Tech-Zolutions-Network-Project)
 > Secure hierarchical enterprise network with VLAN segmentation, DHCP, ACLs, ZBF, and IPsec VPN to connect remote sites.
 
-- 📄 [Report](./Tech-Zolutions-Network-Project/report.pdf)
-- 🖥️ [Cisco Packet Tracer File](./Tech-Zolutions-Network-Project/Main.pkt)
 
 ---
 
-### 👨‍💻 [Ethical Hacking Penetration Test Report (WM9PF-15)](./Ethical-Hacking-PenTest-Report)
+### 👨‍💻 [Ethical Hacking Penetration Test Report](./Ethical-Hacking-PenTest-Report)
 > Full black-box pentest simulation of five vulnerable VMs. Includes enumeration, exploitation, privilege escalation, and mitigation strategy.
 
 - 🔧 Tools: Nmap, Burp Suite, Hydra, Metasploit, SQLmap
 
 ---
 
-### 🧩 [Proactive Cyber Defence System (WM9C2-15)](./Proactive-Cyber-Defence)
+### 🧩 [Proactive Cyber Defence System ](./Proactive-Cyber-Defence)
 > Insider threat detection architecture using Zeek, Suricata, Wazuh, and Splunk. Forensically sound incident response with APT defence testing.
 
 
 ---
 
-### ✈️ [James Bond Airport IIoT Cyber Risk Analysis (WM9C4-15)](./JamesBond-IIoT-Assessment)
+### ✈️ [James Bond Airport IIoT Cyber Risk Analysis](./JamesBond-IIoT-Assessment)
 > Risk assessment and mitigation report for IIoT deployments in an airport: CCTV, ATC systems, badge printers, and in-flight entertainment.
-
-- 📄 [Report](./JamesBond-IIoT-Assessment/reportGRC.pdf)
 
 ---
 
